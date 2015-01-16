@@ -5,7 +5,12 @@ varying languages. For each language provided, the program should be called
 with the number of iterations and the method version to use for the benchmark.
 The program outputs the number of milliseconds it took to run the iterations.
 
-All programs use the standard Lorem Ipsum paragraph text.
+Time measurements and iterations are taken within each program (as opposed to
+by a driver script) to avoid the overhead of program startup (e.g., JVM).
+
+All programs use the standard [Lorem Ipsum][lorem] paragraph text as input.
+
+Implementations in other languages are welcome!
 
 ###Method Versions
 
@@ -40,3 +45,6 @@ All programs use the standard Lorem Ipsum paragraph text.
 ####Perl
 
     perl ./reverse.pl <iterations> <version>
+
+
+ [lorem]: http://en.wikipedia.org/wiki/Lorem_ipsum
