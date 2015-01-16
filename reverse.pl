@@ -30,9 +30,13 @@ sub reverse2 {
     my ($str) = @_;
     my $out = "";
     for (my $i = length($str)-1; $i >= 0; $i--) {
-        $out .= substr($str, $i-1, 1);
+        $out .= substr($str, $i, 1);
     }
     return $out;
+}
+
+sub reverse3 {
+    return scalar reverse $_[0];
 }
 
 MAIN: {
@@ -40,7 +44,13 @@ MAIN: {
     my $arg   = $ARGV[1];
     my $method = undef;
 
-    $method = $arg eq "1" ? \&reverse1 : \&reverse2;
+    if ($arg eq "1") {
+        $method = \&reverse1;
+    } elsif ($arg eq "2") {
+        $method = \&reverse2;
+    } else {
+        $method = \&reverse3;
+    }
 
     my $start = time;
     for (my $i = 0; $i < $times; $i++) {
